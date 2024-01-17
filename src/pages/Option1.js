@@ -29,19 +29,25 @@ const useStyles = makeStyles({
       },
   });
 
+
 function Option1() {
-    const { isAuthenticated, user } = useAuth();
+  const classes = useStyles();  
+  
+  const { isAuthenticated, user, loading } = useAuth();
+    console.log({"USER" :user});
 
-    const classes = useStyles();
+    if (loading) {
+      console.log("loading!");
+      return <div>Loading...</div>;
+  }
 
-
-    if (!isAuthenticated) {
+    if (!isAuthenticated || !user) {
       return <div>Hey man you aren't logged in</div>;
     }
 
     const renderUserInfo = (key, value) => {
-        if (typeof value === 'object') {
-          return (
+      if (typeof value === 'object' && value !== null) {
+        return (
             <Card key={key} variant="outlined" className={classes.card}>
               <CardContent>
                 <Typography variant="h6">{key}</Typography>
@@ -63,23 +69,29 @@ function Option1() {
         );
       };
     
-      return (
-        <Paper elevation={3} className={classes.root}>
-          <Grid container spacing={2}>
-            <Grid item xs={12}>
-              <Typography variant="h4" component="h1">
-                User Information
-              </Typography>
-            </Grid>
-            {/* <Grid item xs={12} sm={6}>
-              { user && <Avatar alt={user.name} src={user.profilePictureUrl} className={classes.avatar} /> }
-            </Grid>
-            <Grid item xs={12} sm={6}>
-                {user && Object.entries(user).map(([key, value]) => renderUserInfo(key, value))}
-            </Grid> */}
+    return (
+      <Paper elevation={3} className={classes.root}>
+        <Grid container spacing={2} >
+          <Grid item xs={12}>
+            <Typography variant="h4" component="h1">
+              User Information
+            </Typography>
           </Grid>
-        </Paper>
-      );
+          <Grid container spacing={2} alignItems="stretch">
+  <Grid item xs={12} sm={6}>
+    { user && <Avatar alt={user.name} src={user.profilePictureUrl} className={classes.avatar} /> }
+  </Grid>
+  <Grid item xs={12} sm={6}>
+    {user && Object.entries(user).map(([key, value]) => (
+      <Typography noWrap={false}>
+        {renderUserInfo(key, value)}
+      </Typography>
+    ))}
+  </Grid>
+</Grid>
+        </Grid>
+      </Paper>
+    );
   
 }
 
