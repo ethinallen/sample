@@ -1,4 +1,4 @@
-import { Paper, Typography, Container, Grid, CardContent, Card, Avatar, makeStyles } from '@material-ui/core';
+import { Paper, Box, Typography, Container, Grid, CardContent, Card, Avatar, makeStyles } from '@material-ui/core';
 import { useIsAuthenticated } from '@frontegg/react';
 import { Redirect } from 'react-router-dom';
 import React from 'react';
@@ -27,6 +27,12 @@ const useStyles = makeStyles({
         width: '100px',
         height: '100px',
       },
+      userInfo: {
+        wordBreak: 'break-all',
+      },
+      userInfoBox: {
+        paddingTop: "100px"
+      }
   });
 
 
@@ -78,17 +84,19 @@ function Option1() {
             </Typography>
           </Grid>
           <Grid container spacing={2} alignItems="stretch">
-  <Grid item xs={12} sm={6}>
-    { user && <Avatar alt={user.name} src={user.profilePictureUrl} className={classes.avatar} /> }
-  </Grid>
-  <Grid item xs={12} sm={6}>
-    {user && Object.entries(user).map(([key, value]) => (
-      <Typography noWrap={false}>
-        {renderUserInfo(key, value)}
-      </Typography>
-    ))}
-  </Grid>
-</Grid>
+          <Grid item xs={12} sm={6}>
+            { user && <Avatar alt={user.name} src={user.profilePictureUrl} className={classes.avatar} /> }
+          </Grid>
+          <Box display="flex" flexDirection="column" alignItems="center" justifyContent="center" className='userInfoBox'>
+          <Grid item xs={12} sm={6}>
+            {user && Object.entries(user).map(([key, value]) => (
+              <Typography noWrap={false} className={classes.userInfo}>
+                {renderUserInfo(key, value)}
+              </Typography>
+            ))}
+          </Grid>
+          </Box>
+        </Grid>
         </Grid>
       </Paper>
     );
