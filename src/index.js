@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import './index.css';
@@ -7,11 +7,6 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 import { FronteggProvider } from "@frontegg/react";
-
-import Option1 from './pages/Option1';
-import Option2 from './pages/Option2';
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const contextOptions = {
   baseUrl: 'https://app-ygfbzolrp8mb.frontegg.com',
@@ -22,12 +17,11 @@ const authOptions = {
   keepSessionAlive: true // Uncomment this in order to maintain the session alive
  };
 
-root.render(
-  <React.StrictMode>
+ ReactDOM.render(
     <FronteggProvider contextOptions={contextOptions} hostedLoginBox={true} authOptions={authOptions}>
       <App />
-    </FronteggProvider>
-  </React.StrictMode>
+    </FronteggProvider>,
+    document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

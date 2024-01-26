@@ -18,7 +18,7 @@ function Jumbotron() {
   const classes = useStyles();
 
   return (
-    <Container maxWidth="xlg">
+    <Container maxWidth="xl">
       <Grid container justifyContent="center">
         <Grid item xs={12} md={6}>
             <Paper elevation={3} className={classes.root}>

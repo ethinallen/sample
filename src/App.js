@@ -15,6 +15,8 @@ import Jumbotron from './components/Jumbotron';
 import Blurbs from './components/Blurbs';
 import Option1 from './pages/Option1';
 import Option2 from './pages/Option2';
+import PricingOptions from './components/PricingOptions';
+
 
 
 import { ThemeProvider, createTheme } from '@material-ui/core/styles';
@@ -58,6 +60,7 @@ function App() {
           <>
             <Jumbotron />
             <Blurbs />
+            <PricingOptions />
           </>
         } />
         <Route path="/option1" element={<Option1 />} />
