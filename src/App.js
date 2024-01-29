@@ -3,21 +3,16 @@ import './App.css';
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-
 import { useAuth, useLoginWithRedirect, ContextHolder } from "@frontegg/react";
-import { AdminPortal } from '@frontegg/react';
-import Dashboard from './components/Dashboard';
-import { Paper, Typography } from '@material-ui/core';
-
 
 import Navbar from './components/Navbar';
 import Jumbotron from './components/Jumbotron';
 import Blurbs from './components/Blurbs';
 import Option1 from './pages/Option1';
 import Option2 from './pages/Option2';
+import HealthData from './pages/HealthData';
 import PricingOptions from './components/PricingOptions';
-
-
+import NotFound from './pages/NotFound';
 
 import { ThemeProvider, createTheme } from '@material-ui/core/styles';
 
@@ -65,6 +60,8 @@ function App() {
         } />
         <Route path="/option1" element={<Option1 />} />
         <Route path="/option2" element={<Option2 />} />
+        <Route path="/health-data" element={<HealthData />} />
+        <Route path="/not-found" element={<NotFound />} />
       </Routes>
 
 

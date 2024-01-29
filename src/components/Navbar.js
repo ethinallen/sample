@@ -23,7 +23,6 @@ function Navbar() {
   const { switchTenant } = useAuthActions();
   const loginWithRedirect = useLoginWithRedirect();
 
-  console.log(user);
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [tenantAnchorEl, setTenantAnchorEl] = React.useState(null);
@@ -84,6 +83,9 @@ function Navbar() {
         
         {isAuthenticated ? (
           <>
+            {user && user.roles && user.roles.some(role => role.name === 'patient') && (
+              <Button color="inherit" component={Link} to="/health-data">Patient Page</Button>
+            )}
             <Button color="inherit" component={Link} to="/option1">User Information</Button>
             <Button aria-controls="tenant-menu" aria-haspopup="true" onClick={handleTenantMenuOpen}>
               Switch Tenants
