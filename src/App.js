@@ -35,6 +35,13 @@ const theme = createTheme({
       active: '#58A6FF',
     },
   },
+  overrides: {
+    MuiTab: {
+      selected: {
+        color: 'blue', // change this to your desired color
+      },
+    },
+  },
 });
 
 function App() {
