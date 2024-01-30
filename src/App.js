@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import CallbackHandler from './components/CallbackHandler';
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
@@ -12,7 +13,6 @@ import Option1 from './pages/Option1';
 import Option2 from './pages/Option2';
 import HealthData from './pages/HealthData';
 import PricingOptions from './components/PricingOptions';
-import CallbackHandler from './components/CallbackHandler';
 import NotFound from './pages/NotFound';
 
 import { ThemeProvider, createTheme } from '@material-ui/core/styles';

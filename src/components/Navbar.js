@@ -23,11 +23,6 @@ function Navbar() {
   const { switchTenant } = useAuthActions();
   const loginWithRedirect = useLoginWithRedirect();
 
-  const login = () => {
-    const currentLocation = window.location.pathname;
-    loginWithRedirect({ state: { from: currentLocation } });
-  };
-
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [tenantAnchorEl, setTenantAnchorEl] = React.useState(null);
@@ -68,6 +63,11 @@ function Navbar() {
   const handleSwitchTenant = (tenantId) => {
     switchTenant({ tenantId });
     handleTenantMenuClose();
+  };
+
+  const login = () => {
+    const currentLocation = window.location.pathname;
+    loginWithRedirect({ state: { from: currentLocation } });
   };
 
   const logout = () => {
@@ -115,7 +115,7 @@ function Navbar() {
             </Menu>
           </>
         ) : (
-          <Button onClick={() => loginWithRedirect()}>Sign In</Button>
+          <Button onClick={() => login()}>Sign In</Button>
         )}
       </Toolbar>
     </AppBar>
