@@ -12,6 +12,7 @@ import Option1 from './pages/Option1';
 import Option2 from './pages/Option2';
 import HealthData from './pages/HealthData';
 import PricingOptions from './components/PricingOptions';
+import CallbackHandler from './components/CallbackHandler';
 import NotFound from './pages/NotFound';
 
 import { ThemeProvider, createTheme } from '@material-ui/core/styles';
@@ -69,6 +70,7 @@ function App() {
         <Route path="/option2" element={<Option2 />} />
         <Route path="/health-data" element={<HealthData />} />
         <Route path="/not-found" element={<NotFound />} />
+        <Route path="/oauth/callback" element={<CallbackHandler />} />
       </Routes>
 
 
