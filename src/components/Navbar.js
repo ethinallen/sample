@@ -19,9 +19,14 @@ const useStyles = makeStyles({
 
 function Navbar() {
   const classes = useStyles();
-  const { isAuthenticated, login, user } = useAuth();
+  const { isAuthenticated, user } = useAuth();
   const { switchTenant } = useAuthActions();
   const loginWithRedirect = useLoginWithRedirect();
+
+  const login = () => {
+    const currentLocation = window.location.pathname;
+    loginWithRedirect({ state: { from: currentLocation } });
+  };
 
 
   const [anchorEl, setAnchorEl] = React.useState(null);
