@@ -9,12 +9,12 @@ import reportWebVitals from './reportWebVitals';
 import { FronteggProvider } from "@frontegg/react";
 
 const contextOptions = {
-  baseUrl: 'https://app-ygfbzolrp8mb.frontegg.com',
-  clientId: 'b91270b9-b53b-4012-bfb8-14839924fa9a',
+  baseUrl: 'https://app-brjit48vdaeo.frontegg.com',
+  clientId: 'dca94e5f-fbf5-4617-bf2d-46038bbf6570',
 };
 
 const authOptions = {
-  keepSessionAlive: true // Uncomment this in order to maintain the session alive
+  keepSessionAlive: true
  };
 
  ReactDOM.render(
