@@ -11,6 +11,7 @@ import Jumbotron from './components/Jumbotron';
 import Blurbs from './components/Blurbs';
 import Option1 from './pages/Option1';
 import Option2 from './pages/Option2';
+import StepUpPage from './pages/StepUpPage';
 import HealthData from './pages/HealthData';
 import PricingOptions from './components/PricingOptions';
 import NotFound from './pages/NotFound';
@@ -67,6 +68,7 @@ function App() {
           </>
         } />
         <Route path="/option1" element={<Option1 />} />
+        <Route path="/option2" element={<Option2 />} />
         <Route path="/option2" element={<Option2 />} />
         <Route path="/health-data" element={<HealthData />} />
         <Route path="/not-found" element={<NotFound />} />

@@ -8,8 +8,8 @@ import reportWebVitals from './reportWebVitals';
 import { FronteggProvider } from "@frontegg/react";
 
 const contextOptions = {
-  baseUrl: 'https://app-ygfbzolrp8mb.frontegg.com',
-  clientId: 'b91270b9-b53b-4012-bfb8-14839924fa9a',
+  baseUrl: 'https://app-s1yjnqxw6o2g.frontegg.com',
+  clientId: 'dd3a12f0-2f03-4ed7-9cf4-76ac4f6d3d97',
 };
 
 const authOptions = {

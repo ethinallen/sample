@@ -92,6 +92,7 @@ function Navbar() {
               <Button color="inherit" component={Link} to="/health-data">Patient Page</Button>
             )}
             <Button color="inherit" component={Link} to="/option1">User Information</Button>
+            <Button color="inherit" component={Link} to="/StepUpPage">Step Up Required</Button>
             <Button aria-controls="tenant-menu" aria-haspopup="true" onClick={handleTenantMenuOpen}>
               Switch Tenants
             </Button>

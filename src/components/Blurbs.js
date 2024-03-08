@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { Card, Box, Grid, Paper, Typography, Container, Button, CardContent, Accordion, AccordionSummary, AccordionDetails, makeStyles } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -26,11 +27,23 @@ const useStyles = makeStyles({
 function Blurbs() {
 
   const classes = useStyles();
+  const [expanded, setExpanded] = useState({
+    easeOfIntegration: true,
+    scalability: true,
+    security: true,
+    customizability: true,
+  });
+
+// Function to toggle accordion expansion
+const handleAccordionChange = (panel) => (event, isExpanded) => {
+    setExpanded({ ...expanded, [panel]: isExpanded });
+    };
+
   return (
     <Container maxWidth="xl">
     <Grid  container spacing={3} >
         <Grid item xs={6} md={6}>
-            <Accordion>
+            <Accordion expanded={expanded.easeOfIntegration} onChange={handleAccordionChange('easeOfIntegration')}>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel1a-content"
@@ -54,7 +67,7 @@ function Blurbs() {
             </Accordion>
       </Grid>
       <Grid item xs={6} sm={6}>
-            <Accordion>
+      <Accordion expanded={expanded.scalability} onChange={handleAccordionChange('scalability')}>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel1a-content"
@@ -78,7 +91,7 @@ function Blurbs() {
             </Accordion>
       </Grid>
       <Grid item xs={6} sm={6}>
-            <Accordion>
+        <Accordion expanded={expanded.security} onChange={handleAccordionChange('security')}>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel1a-content"
@@ -101,7 +114,7 @@ function Blurbs() {
             </Accordion>
       </Grid>
       <Grid item xs={6} sm={6}>
-            <Accordion>
+      <Accordion expanded={expanded.customizability} onChange={handleAccordionChange('customizability')}>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel1a-content"
